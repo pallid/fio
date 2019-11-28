@@ -17,4 +17,4 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Test
-      run: go test -timeout 30s github.com\pallid\fio -run ^(TestSetFullName|TestGetPartsOfFullName|TestGetLastNameAndInitials)$
+      run: go test
