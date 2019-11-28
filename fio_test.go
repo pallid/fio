@@ -29,7 +29,7 @@ var fioTests = []struct {
 	{
 		input:               "Степанов Андрей",
 		firstName:           "Андрей",
-		middleName:          "xxx",
+		middleName:          "",
 		lastName:            "Степанов",
 		fullName:            "Степанов Андрей",
 		lastNameAndInitials: "Степанов А.",
