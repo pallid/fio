@@ -5,16 +5,27 @@ import (
 	"strings"
 )
 
-// SetFullName устанавливает полное ФИО в поле FullName
-func (p *PartsName) SetFullName(fullName string) {
+// New - создание экземпляра PartsName
+func New() *PartsName {
+	return &PartsName{}
+}
+
+//GetPartsOfFullName выполняет методы getPartsOfFullName и getLastNameAndInitials
+func (p *PartsName) GetPartsOfFullName(fullName string) {
+	p.setFullName(fullName)
+	p.getLastNameAndInitials()
+}
+
+// setFullName устанавливает полное ФИО в поле FullName
+func (p *PartsName) setFullName(fullName string) {
 	p.FullName = fullName
 }
 
-// GetPartsOfFullName раскладывает полное имя физического лица на составные части - фамилию, имя и отчество.
+// getPartsOfFullName раскладывает полное имя физического лица на составные части - фамилию, имя и отчество.
 // Если в конце полного имени встречаются "оглы", "улы", "уулу", "кызы" или "гызы",
 // то они также считаются частью отчества.
 // Заполняются поля LastName, FirstName, MiddleName
-func (p *PartsName) GetPartsOfFullName() {
+func (p *PartsName) getPartsOfFullName() {
 	s := strings.Split(p.FullName, " ")
 	if len(s) >= 1 {
 		p.LastName = s[0]
@@ -33,12 +44,12 @@ func (p *PartsName) GetPartsOfFullName() {
 	}
 }
 
-// GetLastNameAndInitials формирует краткое представление из полного имени физического лица.
+// getLastNameAndInitials формирует краткое представление из полного имени физического лица.
 // Заполняется поле LastNameAndInitials
-func (p *PartsName) GetLastNameAndInitials() {
+func (p *PartsName) getLastNameAndInitials() {
 	var lastNameAndInitials string
 	if p.LastName == "" {
-		p.GetPartsOfFullName()
+		p.getPartsOfFullName()
 	}
 	if p.FirstName == "" {
 		lastNameAndInitials = p.LastName

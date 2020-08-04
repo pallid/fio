@@ -44,29 +44,10 @@ var fioTests = []struct {
 	},
 }
 
-func TestSetFullName(t *testing.T) {
-	for _, tt := range fioTests {
-		p := &PartsName{}
-		p.SetFullName(tt.input)
-		if p.FullName != tt.fullName {
-			t.Fatalf("SetFullName. Expected [%v], Actual [%v]", tt.fullName, p.FullName)
-		}
-	}
-}
-
-func BenchmarkSetFullName(b *testing.B) {
-	p := &PartsName{}
-	for i := 0; i < b.N; i++ {
-		for _, tt := range fioTests {
-			p.SetFullName(tt.input)
-		}
-	}
-}
-
 func TestGetPartsOfFullName(t *testing.T) {
 	for _, tt := range fioTests {
-		p := &PartsName{FullName: tt.input}
-		p.GetPartsOfFullName()
+		p := New()
+		p.GetPartsOfFullName(tt.input)
 		if p.LastName != tt.lastName {
 			t.Fatalf("GetPartsOfFullName. Expected [%v], Actual [%v]", tt.lastName, p.LastName)
 		}
@@ -76,33 +57,17 @@ func TestGetPartsOfFullName(t *testing.T) {
 		if p.MiddleName != tt.middleName {
 			t.Fatalf("GetPartsOfFullName. Expected [%v], Actual [%v]", tt.middleName, p.MiddleName)
 		}
-	}
-}
-
-func BenchmarkGetPartsOfFullName(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		for _, tt := range fioTests {
-			p := &PartsName{FullName: tt.input}
-			p.GetPartsOfFullName()
-		}
-	}
-}
-
-func TestGetLastNameAndInitials(t *testing.T) {
-	for _, tt := range fioTests {
-		p := &PartsName{FullName: tt.input}
-		p.GetLastNameAndInitials()
 		if p.LastNameAndInitials != tt.lastNameAndInitials {
 			t.Fatalf("GetLastNameAndInitials. Expected [%v], Actual [%v]", tt.lastNameAndInitials, p.LastNameAndInitials)
 		}
 	}
 }
 
-func BenchmarkGetLastNameAndInitials(b *testing.B) {
+func BenchmarkGetPartsOfFullName(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		for _, tt := range fioTests {
-			p := &PartsName{FullName: tt.input}
-			p.GetLastNameAndInitials()
+			p := New()
+			p.GetPartsOfFullName(tt.input)
 		}
 	}
 }
