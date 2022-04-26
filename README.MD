@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/pallid/fio/badge)](https://www.codefactor.io/repository/github/pallid/fio)
 
 Пример использования
 
