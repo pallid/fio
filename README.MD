@@ -1,4 +1,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/pallid/fio/badge)](https://www.codefactor.io/repository/github/pallid/fio)
+[![DeepSource](https://deepsource.io/gh/pallid/fio.svg/?label=active+issues&show_trend=true&token=YevWylnxp_ciXd6H673c7piN)](https://deepsource.io/gh/pallid/fio/?ref=repository-badge)
+[![DeepSource](https://deepsource.io/gh/pallid/fio.svg/?label=resolved+issues&show_trend=true&token=YevWylnxp_ciXd6H673c7piN)](https://deepsource.io/gh/pallid/fio/?ref=repository-badge)
 
 Пример использования
 
